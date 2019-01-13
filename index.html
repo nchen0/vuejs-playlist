@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VueJS Tutorials</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
@@ -13,7 +13,16 @@
       <h1>{{ greet("afternoon") }}</h1>
       <p>Name: {{ name }}</p>
       <p>Job: {{ job }}</p>
-      <a v-bind:href="website">Website</a>
+      <p v-html="websiteTag">Version 2</p>
+      <a v-bind:href="website">Website</a> <input type="text" v-bind:value="name" />
+      <hr />
+      <h2>Events</h2>
+      <button @click="add(1)">Add a Year</button>
+      <button v-on:click="age--">Subtract a Year</button>
+      <button v-on:dblclick="add(10)">Add 10 Years</button>
+      <button v-on:click="subtract(10)">Subtract 10 Years</button>
+      <p>My age is {{ age }}</p>
+      <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
     </div>
     <script src="app.js"></script>
   </body>
