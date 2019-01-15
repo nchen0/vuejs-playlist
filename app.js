@@ -10,7 +10,10 @@ new Vue({
     y: 0,
     a: 0,
     b: 0,
-    available: false
+    available: false,
+    nearby: false,
+    error: false,
+    success: false
   },
   methods: {
     greet: function(time) {
@@ -46,6 +49,12 @@ new Vue({
     },
     addToB: function() {
       return this.b + this.age;
+    },
+    compClasses: function() {
+      return {
+        available: this.available,
+        nearby: this.nearby
+      };
     }
   }
 });
