@@ -10,6 +10,12 @@
   </head>
   <body>
     <div id="vue-app-two">
+      <h1>Refs</h1>
+      <input type="text" ref="input" />
+      <p>Your favorite food: {{ output }}</p>
+      <button v-on:click="readRefs">Submit</button>
+      <div ref="test">Hello</div>
+      <hr />
       <h1>Components</h1>
       <sgreeting></sgreeting>
       <hr />

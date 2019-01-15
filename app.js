@@ -87,11 +87,18 @@ let one = new Vue({
 let two = new Vue({
   el: "#vue-app-two",
   data: {
-    title: "Vue App Two"
+    title: "Vue App Two",
+    output: "Your favorite food"
   },
   methods: {
     changeOneTitle: function() {
       one.title = "Changed";
+    },
+    readRefs: function() {
+      // We want to access the input refs we defined in the HTML.
+      this.output = this.$refs.input.value;
+      this.$refs.test.innerText = this.output;
+      console.log("this.$refs is: ", this.$refs);
     }
   },
   computed: {
