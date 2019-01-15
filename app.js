@@ -1,4 +1,19 @@
-new Vue({
+Vue.component("sgreeting", {
+  template:
+    "<p>Hey There I am {{name}}. <button v-on:click='changeName'>Change name</button> </p>",
+  data: function() {
+    return {
+      name: "Yoshi"
+    };
+  },
+  methods: {
+    changeName: function() {
+      this.name = "Mario";
+    }
+  }
+});
+
+let one = new Vue({
   el: "#vue-app",
   data: {
     name: "",
@@ -15,9 +30,17 @@ new Vue({
     error: false,
     success: false,
     characters: ["Mario", "Luigi", "Yoshi", "Bowser"],
-    ninjas: [{ name: "Ryu", age: 25 }, { name: "Sam", age: 26 }, { name: "Jessica", age: 22 }]
+    ninjas: [
+      { name: "Ryu", age: 25 },
+      { name: "Sam", age: 26 },
+      { name: "Jessica", age: 22 }
+    ],
+    title: "Vue Instance 1"
   },
   methods: {
+    newGreet: function() {
+      return "Vue Instance 1";
+    },
     greet: function(time) {
       return `Good ${time}, ${this.name}`;
     },
@@ -57,6 +80,23 @@ new Vue({
         available: this.available,
         nearby: this.nearby
       };
+    }
+  }
+});
+
+let two = new Vue({
+  el: "#vue-app-two",
+  data: {
+    title: "Vue App Two"
+  },
+  methods: {
+    changeOneTitle: function() {
+      one.title = "Changed";
+    }
+  },
+  computed: {
+    greet: function() {
+      return "Vue instance 2";
     }
   }
 });
