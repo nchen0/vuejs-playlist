@@ -2,13 +2,14 @@
 
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-on:changeTitle="updateTitle($event)" v-bind:title="title"></app-header>
     <app-ninja v-bind:ninjas="ninjas"></app-ninja>
+
     <hr>
     <h1>{{title}}</h1>
     <p>{{greeting()}}</p>
     <ninjas></ninjas>
-    <app-footer></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
   },
   data() {
     return {
-      title: "First Vue File",
+      title: "Vue Ninjas",
       ninjas: [
         { name: "Ryu", speciality: "Vue Components", show: false },
         { name: "Crystal", speciality: "HTML Wizardry", show: false },
@@ -37,6 +38,9 @@ export default {
     };
   },
   methods: {
+    updateTitle: function(event) {
+      this.title = event;
+    },
     greeting: function() {
       return "New Vue Project!";
     }
