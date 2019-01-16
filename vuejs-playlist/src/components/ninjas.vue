@@ -27,8 +27,9 @@ export default {
     deleteNinja: function() {
       this.ninjas.pop();
     }
-  },
+  }
   //Lifecycle Hooks:
+  /*
   beforeCreate() {
     alert("beforeCreate");
   },
@@ -46,7 +47,7 @@ export default {
   },
   updated() {
     alert("updated");
-  }
+  }*/
 };
 </script>
 

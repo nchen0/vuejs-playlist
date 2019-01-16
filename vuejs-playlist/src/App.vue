@@ -2,6 +2,19 @@
 
 <template>
   <div>
+    <form-helper>
+      <div slot="form-header">
+        <h3>This is the title of the form.</h3>
+      </div>
+      <div slot="form-fields">
+        <input type="text" placeholder="name" required>
+        <input type="password" placeholder="password" required>
+      </div>
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Handle Submit</button>
+      </div>
+    </form-helper>
+    <hr>
     <app-header v-on:changeTitle="updateTitle($event)" v-bind:title="title"></app-header>
     <app-ninja v-bind:ninjas="ninjas"></app-ninja>
 
@@ -14,6 +27,7 @@
 </template>
 
 <script>
+import formHelper from "./components/formHelper.vue";
 import Ninjas from "./ninjas.vue";
 import Header from "./components/header.vue";
 import Footer from "./components/footer.vue";
@@ -23,7 +37,8 @@ export default {
     ninjas: Ninjas,
     "app-header": Header,
     "app-footer": Footer,
-    "app-ninja": Ninja
+    "app-ninja": Ninja,
+    "form-helper": formHelper
   },
   data() {
     return {
